@@ -1,0 +1,26 @@
+badger BACK.png
+size:204,204
+filter:Linear,Linear
+pma:true
+arrow
+bounds:104,75,61,63
+offsets:2,2,65,66
+rotate:90
+balista
+bounds:2,121,100,79
+offsets:0,0,100,80
+ballista_stand
+bounds:53,6,28,36
+offsets:1,1,30,38
+rotate:90
+body
+bounds:99,24,57,49
+offsets:1,1,59,51
+head
+bounds:2,36,95,83
+offsets:1,1,97,85
+rope
+bounds:104,138,77,62
+tail
+bounds:2,2,49,32
+offsets:1,1,51,34

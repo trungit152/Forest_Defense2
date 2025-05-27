@@ -1,0 +1,33 @@
+{ "skeleton": { "images": "D:/MOONLAB/TỪ HÈ 2024 ĐỔ ĐI TỚI CUỐI NĂM/THE ABYSS BELOW/DONE/TURRETS/thunderbird BACK/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "ball", "bone": "root", "attachment": "ball" },
+	{ "name": "body", "bone": "root", "attachment": "body" },
+	{ "name": "arm2", "bone": "root", "attachment": "arm2" },
+	{ "name": "arm1", "bone": "root", "attachment": "arm1" },
+	{ "name": "head", "bone": "root", "attachment": "head" }
+],
+"skins": {
+	"default": {
+		"ball": {
+			"ball": { "x": 47, "y": -87, "width": 54, "height": 52 }
+		},
+		"body": {
+			"body": { "x": 69, "y": -104.5, "width": 58, "height": 45 }
+		},
+		"arm2": {
+			"arm2": { "x": 98, "y": -88.5, "width": 34, "height": 23 }
+		},
+		"arm1": {
+			"arm1": { "x": 36, "y": -92.5, "width": 42, "height": 23 }
+		},
+		"head": {
+			"head": { "x": 69.5, "y": -55, "width": 89, "height": 84 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

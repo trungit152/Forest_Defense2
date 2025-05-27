@@ -1,0 +1,21 @@
+fox BACK.png
+size:168,168
+filter:Linear,Linear
+pma:true
+body
+bounds:101,2,43,42
+offsets:1,1,45,44
+ear1
+bounds:61,23,38,69
+offsets:1,1,40,71
+ear2
+bounds:101,46,37,67
+offsets:1,1,39,69
+gun
+bounds:2,31,57,61
+head
+bounds:2,94,87,70
+offsets:1,1,89,72
+tail
+bounds:91,115,64,49
+offsets:1,1,66,51

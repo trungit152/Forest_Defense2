@@ -1,0 +1,19 @@
+penguin BACK.png
+size:132,132
+filter:Linear,Linear
+pma:true
+arm1
+bounds:88,63,26,16
+offsets:1,1,28,19
+arm2
+bounds:62,31,23,21
+offsets:1,1,25,23
+body
+bounds:2,2,58,50
+offsets:1,1,60,52
+head
+bounds:2,54,84,73
+offsets:1,1,86,75
+stick
+bounds:88,81,35,46
+offsets:1,1,37,48

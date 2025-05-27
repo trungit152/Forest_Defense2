@@ -1,0 +1,93 @@
+{ "skeleton": { "images": "D:/MOONLAB/TỪ HÈ 2024 ĐỔ ĐI TỚI CUỐI NĂM/THE ABYSS BELOW/DONE/ENEMY FIX SIZED/Armored Bull Siege/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": false },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "stand_1", "bone": "root", "attachment": "stand_1" },
+	{ "name": "stand_2", "bone": "root", "attachment": "stand_2" },
+	{ "name": "stand_3", "bone": "root", "attachment": "stand_3" },
+	{ "name": "1", "bone": "root", "attachment": "1" },
+	{ "name": "2", "bone": "root", "attachment": "2" },
+	{ "name": "3", "bone": "root", "attachment": "3" },
+	{ "name": "4", "bone": "root", "attachment": "4" },
+	{ "name": "5", "bone": "root", "attachment": "5" },
+	{ "name": "6", "bone": "root", "attachment": "6" },
+	{ "name": "7", "bone": "root", "attachment": "7" },
+	{ "name": "8", "bone": "root", "attachment": "8" },
+	{ "name": "hit_1", "bone": "root", "attachment": "hit_1" },
+	{ "name": "hit_2", "bone": "root", "attachment": "hit_2" },
+	{ "name": "hit_3", "bone": "root", "attachment": "hit_3" },
+	{ "name": "hit_4", "bone": "root", "attachment": "hit_4" },
+	{ "name": "hit_5", "bone": "root", "attachment": "hit_5" },
+	{ "name": "hit_6", "bone": "root", "attachment": "hit_6" },
+	{ "name": "throw_5", "bone": "root", "attachment": "throw_5" },
+	{ "name": "throw_6", "bone": "root", "attachment": "throw_6" },
+	{ "name": "throw_7", "bone": "root", "attachment": "throw_7" }
+],
+"skins": {
+	"default": {
+		"stand_1": {
+			"stand_1": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"stand_2": {
+			"stand_2": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"stand_3": {
+			"stand_3": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"1": {
+			"1": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"2": {
+			"2": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"3": {
+			"3": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"4": {
+			"4": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"5": {
+			"5": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"6": {
+			"6": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"7": {
+			"7": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"8": {
+			"8": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"hit_1": {
+			"hit_1": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"hit_2": {
+			"hit_2": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"hit_3": {
+			"hit_3": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"hit_4": {
+			"hit_4": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"hit_5": {
+			"hit_5": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"hit_6": {
+			"hit_6": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"throw_5": {
+			"throw_5": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"throw_6": {
+			"throw_6": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		},
+		"throw_7": {
+			"throw_7": { "x": 155, "y": -177.5, "width": 312, "height": 357 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

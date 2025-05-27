@@ -1,0 +1,41 @@
+{ "skeleton": { "images": "D:/MOONLAB/TỪ HÈ 2024 ĐỔ ĐI TỚI CUỐI NĂM/THE ABYSS BELOW/DONE/TURRETS/badger BACK/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "ballista_stand", "bone": "root", "attachment": "ballista_stand" },
+	{ "name": "balista", "bone": "root", "attachment": "balista" },
+	{ "name": "rope", "bone": "root", "attachment": "rope" },
+	{ "name": "arrow", "bone": "root", "attachment": "arrow" },
+	{ "name": "body", "bone": "root", "attachment": "body" },
+	{ "name": "head", "bone": "root", "attachment": "head" },
+	{ "name": "tail", "bone": "root", "attachment": "tail" }
+],
+"skins": {
+	"default": {
+		"ballista_stand": {
+			"ballista_stand": { "x": 71, "y": -90, "width": 30, "height": 38 }
+		},
+		"balista": {
+			"balista": { "x": 60, "y": -61, "width": 100, "height": 80 }
+		},
+		"rope": {
+			"rope": { "x": 64.5, "y": -66, "width": 77, "height": 62 }
+		},
+		"arrow": {
+			"arrow": { "x": 62.5, "y": -60, "width": 65, "height": 66 }
+		},
+		"body": {
+			"body": { "x": 101.5, "y": -108.5, "width": 59, "height": 51 }
+		},
+		"head": {
+			"head": { "x": 104.5, "y": -57.5, "width": 97, "height": 85 }
+		},
+		"tail": {
+			"tail": { "x": 130.5, "y": -113, "width": 51, "height": 34 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

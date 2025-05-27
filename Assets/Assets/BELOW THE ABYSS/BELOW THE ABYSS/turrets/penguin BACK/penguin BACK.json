@@ -1,0 +1,33 @@
+{ "skeleton": { "images": "D:/MOONLAB/TỪ HÈ 2024 ĐỔ ĐI TỚI CUỐI NĂM/THE ABYSS BELOW/DONE/TURRETS/penguin BACK/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "body", "bone": "root", "attachment": "body" },
+	{ "name": "arm2", "bone": "root", "attachment": "arm2" },
+	{ "name": "stick", "bone": "root", "attachment": "stick" },
+	{ "name": "arm1", "bone": "root", "attachment": "arm1" },
+	{ "name": "head", "bone": "root", "attachment": "head" }
+],
+"skins": {
+	"default": {
+		"body": {
+			"body": { "x": 68, "y": -84, "width": 60, "height": 52 }
+		},
+		"arm2": {
+			"arm2": { "x": 95.5, "y": -78.5, "width": 25, "height": 23 }
+		},
+		"stick": {
+			"stick": { "x": 23.5, "y": -71, "width": 37, "height": 48 }
+		},
+		"arm1": {
+			"arm1": { "x": 41, "y": -83.5, "width": 28, "height": 19 }
+		},
+		"head": {
+			"head": { "x": 66, "y": -46.5, "width": 86, "height": 75 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

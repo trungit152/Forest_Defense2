@@ -1,0 +1,41 @@
+{ "skeleton": { "images": "D:/MOONLAB/TỪ HÈ 2024 ĐỔ ĐI TỚI CUỐI NĂM/THE ABYSS BELOW/DONE/TURRETS/rabbit_back/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "bow_back", "bone": "root", "attachment": "bow_back" },
+	{ "name": "arrow", "bone": "root", "attachment": "arrow" },
+	{ "name": "rope_back", "bone": "root", "attachment": "rope_back" },
+	{ "name": "body_back", "bone": "root", "attachment": "body_back" },
+	{ "name": "head_back", "bone": "root", "attachment": "head_back" },
+	{ "name": "ear2_back", "bone": "root", "attachment": "ear2_back" },
+	{ "name": "ear1_back", "bone": "root", "attachment": "ear1_back" }
+],
+"skins": {
+	"default": {
+		"bow_back": {
+			"bow_back": { "x": 36, "y": -98.5, "width": 60, "height": 65 }
+		},
+		"arrow": {
+			"arrow": { "x": 40.5, "y": -100, "width": 49, "height": 44 }
+		},
+		"rope_back": {
+			"rope_back": { "x": 35, "y": -100.5, "width": 40, "height": 53 }
+		},
+		"body_back": {
+			"body_back": { "x": 74.5, "y": -124.5, "width": 55, "height": 49 }
+		},
+		"head_back": {
+			"head_back": { "x": 73.5, "y": -88, "width": 85, "height": 74 }
+		},
+		"ear2_back": {
+			"ear2_back": { "x": 88, "y": -43.5, "width": 42, "height": 59 }
+		},
+		"ear1_back": {
+			"ear1_back": { "x": 42.5, "y": -48, "width": 55, "height": 56 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

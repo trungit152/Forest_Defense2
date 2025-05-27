@@ -1,0 +1,49 @@
+{ "skeleton": { "images": "D:/MOONLAB/TỪ HÈ 2024 ĐỔ ĐI TỚI CUỐI NĂM/THE ABYSS BELOW/DONE/TURRETS/duck/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "leg1", "bone": "root", "attachment": "leg1" },
+	{ "name": "leg2", "bone": "root", "attachment": "leg2" },
+	{ "name": "arm2", "bone": "root", "attachment": "arm2" },
+	{ "name": "body", "bone": "root", "attachment": "body" },
+	{ "name": "head", "bone": "root", "attachment": "head" },
+	{ "name": "eye2 copy", "bone": "root", "attachment": "eye2 copy" },
+	{ "name": "eye1 copy", "bone": "root", "attachment": "eye1 copy" },
+	{ "name": "gun", "bone": "root", "attachment": "gun" },
+	{ "name": "arm1", "bone": "root", "attachment": "arm1" }
+],
+"skins": {
+	"default": {
+		"leg1": {
+			"leg1": { "x": 103, "y": -137, "width": 26, "height": 22 }
+		},
+		"leg2": {
+			"leg2": { "x": 66.5, "y": -134.5, "width": 23, "height": 19 }
+		},
+		"arm2": {
+			"arm2": { "x": 62.5, "y": -112.5, "width": 31, "height": 23 }
+		},
+		"body": {
+			"body": { "x": 85, "y": -117.5, "width": 58, "height": 45 }
+		},
+		"head": {
+			"head": { "x": 87, "y": -71.5, "width": 90, "height": 79 }
+		},
+		"eye2 copy": {
+			"eye2 copy": { "x": 59, "y": -77.5, "width": 10, "height": 21 }
+		},
+		"eye1 copy": {
+			"eye1 copy": { "x": 102, "y": -81, "width": 12, "height": 22 }
+		},
+		"gun": {
+			"gun": { "x": 52, "y": -121.5, "width": 68, "height": 47 }
+		},
+		"arm1": {
+			"arm1": { "x": 89, "y": -117.5, "width": 38, "height": 23 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

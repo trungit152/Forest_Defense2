@@ -1,0 +1,1226 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c15947a9d9c055499262900a0a81a8c, type: 3}
+  m_Name: DataGetter
+  m_EditorClassIdentifier: 
+  listDataEnemy:
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Apple
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Pigeon
+    EnemyType: 2
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Plant pot
+    EnemyType: 0
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Mushroom
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Alien Cat
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Blue Slammi
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: White Sheep
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Ghostphase
+    EnemyType: 2
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Fly
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Zombie Bunny
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Zombie Cat
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Flying omni
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Slob
+    EnemyType: 0
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Scared Plant
+    EnemyType: 2
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Sleepy offset
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Fishman
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Javelin Fishman
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Hermit Crab Mage
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Crab
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Flying Wazowski Slime
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: normal
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Evil Stump
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: big
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Knight Bat
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: big
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Minipumpkin
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: big
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Giant Snail
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: big
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Kenshi Crab
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: big
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Alien Wolf
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: boss
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Wolf in sheep's clothing
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: boss
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Stuff Straw
+    EnemyType: 2
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: boss
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Ancient Golem
+    EnemyType: 1
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: boss
+  - EnemyId: 0
+    MergeLevel: 0100000002000000030000000400000005000000
+    Name: Fishman King
+    EnemyType: 2
+    HP:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    ATK:
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    ATKS:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    EXP:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    MS: 5
+    Note: boss
+  listDataTurret:
+  - TurretId: 1
+    Name: RABBIT
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  - TurretId: 2
+    Name: Crocodile
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  - TurretId: 3
+    Name: Fox
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  - TurretId: 4
+    Name: Duck
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  - TurretId: 5
+    Name: Frog
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  - TurretId: 6
+    Name: Zombie
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  - TurretId: 7
+    Name: Chicken
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  - TurretId: 0
+    Name: Land Spike
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  - TurretId: 0
+    Name: Javelin Trap
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  - TurretId: 0
+    Name: Javelin Wall
+    MergeLevel: 0100000002000000030000000400000005000000
+    Size: 1*1
+    SizeStandard: {x: 49, y: 49}
+    ATKType: 0
+    Target: 1
+    Radius: 1
+    Range: 5
+    ATK:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    ATKS:
+    - 10
+    - 10
+    - 10
+    - 10
+    - 10
+    CD:
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+  listDataTurn:
+  - TurnId: 1
+    EnemyId: 000000000000000000000000
+    DelayTime: 010000000100000001000000
+    Pos:
+    - 1
+    - 1
+    - 1
+  - TurnId: 2
+    EnemyId: 000000000000000000000000
+    DelayTime: 010000000100000001000000
+    Pos:
+    - 1
+    - 1
+    - 1
+  - TurnId: 3
+    EnemyId: 000000000000000000000000
+    DelayTime: 010000000100000001000000
+    Pos:
+    - 1
+    - 1
+    - 1
+  listDataWave:
+  - WaveId: 1
+    WaveType: 1
+    TurnId: 010000000200000001000000
+    Delay: 2
+  - WaveId: 2
+    WaveType: 1
+    TurnId: 010000000200000002000000
+    Delay: 2
+  - WaveId: 3
+    WaveType: 1
+    TurnId: 010000000200000003000000
+    Delay: 2
+  - WaveId: 0
+    WaveType: 0
+    TurnId: 
+    Delay: 0
+  tr: {fileID: 8358820533203243763, guid: 8eab8c6ee6cb0154ebbb194f51456618, type: 3}

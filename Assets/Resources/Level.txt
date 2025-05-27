@@ -1,0 +1,1 @@
+[{"Level":1},{"Level":2,"Exp":10},{"Level":3,"Exp":15},{"Level":4,"Exp":20},{"Level":5,"Exp":30},{"Level":6,"Exp":45},{"Level":7,"Exp":60},{"Level":8,"Exp":85},{"Level":9,"Exp":100},{"Level":10,"Exp":125},{"Level":11,"Exp":150},{"Level":12,"Exp":175},{"Level":13,"Exp":200}]

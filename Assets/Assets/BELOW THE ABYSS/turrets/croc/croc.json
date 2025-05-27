@@ -1,0 +1,61 @@
+{ "skeleton": { "images": "D:/MOONLAB/TỪ HÈ 2024 ĐỔ ĐI TỚI CUỐI NĂM/THE ABYSS BELOW/DONE/TURRETS/croc/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "leg1", "bone": "root", "attachment": "leg1" },
+	{ "name": "leg2", "bone": "root", "attachment": "leg2" },
+	{ "name": "body", "bone": "root", "attachment": "body" },
+	{ "name": "head", "bone": "root", "attachment": "head" },
+	{ "name": "eye1", "bone": "root", "attachment": "eye1" },
+	{ "name": "eye2", "bone": "root", "attachment": "eye2" },
+	{ "name": "nose", "bone": "root", "attachment": "nose" },
+	{ "name": "cannon", "bone": "root", "attachment": "cannon" },
+	{ "name": "torch", "bone": "root", "attachment": "torch" },
+	{ "name": "fire1", "bone": "root", "attachment": "fire1" },
+	{ "name": "fire2", "bone": "root", "attachment": "fire2" },
+	{ "name": "fire3", "bone": "root", "attachment": "fire3" }
+],
+"skins": {
+	"default": {
+		"leg1": {
+			"leg1": { "x": 104, "y": -150.5, "width": 28, "height": 21 }
+		},
+		"leg2": {
+			"leg2": { "x": 60, "y": -144.5, "width": 22, "height": 19 }
+		},
+		"body": {
+			"body": { "x": 87, "y": -117.5, "width": 84, "height": 71 }
+		},
+		"head": {
+			"head": { "x": 78, "y": -66.5, "width": 114, "height": 95 }
+		},
+		"eye1": {
+			"eye1": { "x": 45, "y": -58.5, "width": 10, "height": 19 }
+		},
+		"eye2": {
+			"eye2": { "x": 79, "y": -59.5, "width": 12, "height": 21 }
+		},
+		"nose": {
+			"nose": { "x": 38.5, "y": -75.5, "width": 39, "height": 27 }
+		},
+		"cannon": {
+			"cannon": { "x": 50, "y": -143.5, "width": 80, "height": 75 }
+		},
+		"torch": {
+			"torch": { "x": 139, "y": -97, "width": 28, "height": 44 }
+		},
+		"fire1": {
+			"fire1": { "x": 150.5, "y": -57.5, "width": 33, "height": 37 }
+		},
+		"fire2": {
+			"fire2": { "x": 151, "y": -59, "width": 30, "height": 36 }
+		},
+		"fire3": {
+			"fire3": { "x": 151, "y": -66, "width": 14, "height": 14 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

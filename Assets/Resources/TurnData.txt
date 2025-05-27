@@ -1,0 +1,1 @@
+[{"TurnId":1,"EnemyId":[1,1,1,1],"DelayTime":[1,1,1,1],"Pos":[1,1,1,1],"DropTurret":[-1,-1,-1,-1]},{"TurnId":2,"EnemyId":[2,2,2,3],"DelayTime":[1,1,1,1],"Pos":[1,1,1,1],"DropTurret":[-1,-1,-1,-1]},{"TurnId":3,"EnemyId":[3,3,4,4],"DelayTime":[1,1,1,1],"Pos":[1,1,1,1],"DropTurret":[-1,-1,-1,-1]}]

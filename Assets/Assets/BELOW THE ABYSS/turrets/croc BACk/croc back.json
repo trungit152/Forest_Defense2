@@ -1,0 +1,45 @@
+{ "skeleton": { "images": "D:/MOONLAB/TỪ HÈ 2024 ĐỔ ĐI TỚI CUỐI NĂM/THE ABYSS BELOW/DONE/TURRETS/croc BACk/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "canon", "bone": "root", "attachment": "canon" },
+	{ "name": "body", "bone": "root", "attachment": "body" },
+	{ "name": "tail", "bone": "root", "attachment": "tail" },
+	{ "name": "head", "bone": "root", "attachment": "head" },
+	{ "name": "torch", "bone": "root", "attachment": "torch" },
+	{ "name": "fire1", "bone": "root", "attachment": "fire1" },
+	{ "name": "fire2", "bone": "root", "attachment": "fire2" },
+	{ "name": "fire3", "bone": "root", "attachment": "fire3" }
+],
+"skins": {
+	"default": {
+		"canon": {
+			"canon": { "x": 59.5, "y": -87, "width": 79, "height": 80 }
+		},
+		"body": {
+			"body": { "x": 103, "y": -103.5, "width": 82, "height": 75 }
+		},
+		"tail": {
+			"tail": { "x": 118, "y": -131.5, "width": 36, "height": 33 }
+		},
+		"head": {
+			"head": { "x": 93, "y": -53.5, "width": 108, "height": 99 }
+		},
+		"torch": {
+			"torch": { "x": 39.5, "y": -108, "width": 33, "height": 44 }
+		},
+		"fire1": {
+			"fire1": { "x": 23.5, "y": -71, "width": 35, "height": 38 }
+		},
+		"fire2": {
+			"fire2": { "x": 24, "y": -73, "width": 32, "height": 36 }
+		},
+		"fire3": {
+			"fire3": { "x": 23, "y": -79, "width": 14, "height": 14 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

@@ -1,0 +1,33 @@
+duck.png
+size:142,142
+filter:Linear,Linear
+pma:true
+arm1
+bounds:92,61,36,21
+offsets:1,1,38,23
+arm2
+bounds:91,38,29,21
+offsets:1,1,31,23
+body
+bounds:92,84,56,43
+rotate:90
+eye1 copy
+bounds:2,2,10,20
+offsets:1,1,12,22
+rotate:90
+eye2 copy
+bounds:24,4,8,19
+offsets:1,1,10,21
+rotate:90
+gun
+bounds:2,14,68,47
+head
+bounds:2,63,88,77
+offsets:1,1,90,79
+leg1
+bounds:72,16,24,20
+offsets:1,1,26,22
+leg2
+bounds:72,40,21,17
+offsets:1,1,23,19
+rotate:90

@@ -1,0 +1,16 @@
+duck BACK.png
+size:148,148
+filter:Linear,Linear
+pma:true
+arm1
+bounds:53,32,38,30
+offsets:1,1,40,32
+body
+bounds:95,86,58,45
+offsets:1,1,60,47
+rotate:90
+gun
+bounds:2,2,49,60
+head
+bounds:2,64,91,80
+offsets:1,1,93,82

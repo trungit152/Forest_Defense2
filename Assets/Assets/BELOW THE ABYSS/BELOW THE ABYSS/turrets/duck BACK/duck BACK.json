@@ -1,0 +1,29 @@
+{ "skeleton": { "images": "D:/MOONLAB/TỪ HÈ 2024 ĐỔ ĐI TỚI CUỐI NĂM/THE ABYSS BELOW/DONE/TURRETS/duck BACK/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "gun", "bone": "root", "attachment": "gun" },
+	{ "name": "body", "bone": "root", "attachment": "body" },
+	{ "name": "arm1", "bone": "root", "attachment": "arm1" },
+	{ "name": "head", "bone": "root", "attachment": "head" }
+],
+"skins": {
+	"default": {
+		"gun": {
+			"gun": { "x": 29.5, "y": -62, "width": 49, "height": 60 }
+		},
+		"body": {
+			"body": { "x": 78, "y": -99.5, "width": 60, "height": 47 }
+		},
+		"arm1": {
+			"arm1": { "x": 49, "y": -90, "width": 40, "height": 32 }
+		},
+		"head": {
+			"head": { "x": 77.5, "y": -53, "width": 93, "height": 82 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}
