@@ -72,7 +72,7 @@ public class WallControl : MonoBehaviour
         }
         if (newSprite != null && _spriteRenderer.sprite != newSprite)
         {
-            Handheld.Vibrate();
+            //Handheld.Vibrate();
             _spriteRenderer.sprite = newSprite;
         }
     }
