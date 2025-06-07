@@ -15310,7 +15310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7224347932846341429
 Transform:
   m_ObjectHideFlags: 0
@@ -15391,7 +15391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62aa7b69bf000b44a21f775ff836bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 18
+  ID: 16
   _maxHp: 99
   _speed: 0.5
   _enemyDropItem: {fileID: 3033964584422442576}
@@ -15476,7 +15476,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   _attackCd: 0.8333333
-  _exclamationMark: {fileID: 0}
+  _exclamationMark: {fileID: 4640297126221372480}
 --- !u!114 &6522282722839156781
 MonoBehaviour:
   m_ObjectHideFlags: 0

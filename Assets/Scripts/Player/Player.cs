@@ -1,13 +1,31 @@
-﻿using SRF;
+﻿using Photon.Pun;
+using SRF;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private ObjectPool _weaponPool;
     public static Player instance;
+    [SerializeField] private ObjectPool _weaponPool;
+    public PlayerLevel _playerLevel;
+    public PickupItem _pickupItem;
+    public PhotonView _photonView;
+    //public static Player instance;
 
+    private void Awake()
+    {
+        if(instance == null)
+            instance = this;
+        else if(instance != this)
+            Destroy(gameObject);
+        
+        _photonView = GetComponent<PhotonView>();
+        
+    }
     private PlayerAttack _playerAttack;
     public PlayerAttack PlayerAttack
     {
@@ -40,15 +58,29 @@ public class Player : MonoBehaviour
             _playerSpineController = value;
         }
     }
-    private void Awake()
+
+    public JoystickMove _joystickMove;
+    public JoystickMove JoystickMove
     {
-        if (instance != null && instance != this)
+        get
         {
-            Destroy(this);
+            if(_joystickMove == null)
+            {
+                _joystickMove = GetComponent<JoystickMove>();
+            }
+            return _joystickMove;
         }
-        else
+    }
+    public PlayerHealth _playerHealth;
+    public PlayerHealth PlayerHealth
+    {
+        get
         {
-            instance = this;
+            if( _playerHealth == null)
+            {
+                _playerHealth = GetComponent<PlayerHealth>();
+            }
+            return _playerHealth;
         }
     }
 
@@ -79,6 +111,19 @@ public class Player : MonoBehaviour
             ChangeWeapon(1);
         }
     }
+
+    public void Init(/*JoystickMove: */ Joystick joystick,
+        /*PlayerHealth*/ TextMeshProUGUI reviveText, GameObject revivePanel,
+    /*PickUpItem*/Transform deskPosition, Transform expTarget,
+    /*PlayerLevel*/ RectTransform expBar, RectTransform glow, RectTransform expBarBorder, Image chooseTalentPanel, List<TalentCardsUI> talentCardsUI,
+        EnemiesAnimator enemiesAnimator, TextMeshProUGUI levelText, TextMeshProUGUI chooseTalentsText, GameObject levelUpBanner)
+    {
+        _joystickMove.Init(joystick);
+        _playerHealth.Init(reviveText,revivePanel, joystick.gameObject);
+        _pickupItem.Init(deskPosition, expTarget);
+        _playerLevel.Init(expBar, glow, expBarBorder, chooseTalentPanel, talentCardsUI, enemiesAnimator, levelText, chooseTalentsText, levelUpBanner);
+    }
+    
     public IEnumerator RemoveAndAddComponent<TRemove, TAdd>(Action<TAdd> onAdded = null)
     where TRemove : Component
     where TAdd : Component

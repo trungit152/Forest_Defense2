@@ -18,7 +18,7 @@ public class EnemiesController : MonoBehaviour
 
     private void Start()
     {
-        if(DataEnemy.listData == null)
+        if (DataEnemy.listData == null)
         {
             _dataEnemyList = DataEnemy.GetListData();
         }

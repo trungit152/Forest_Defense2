@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -401,5 +402,33 @@ public static class FeelingTools
         onComplete?.Invoke();
     }
 
+    public static IEnumerator ShowNumberText(TextMeshProUGUI numberText, int start, int end, float time)
+    {
+        if (!numberText.gameObject.activeSelf)
+            numberText.gameObject.SetActive(true);
 
+        float elapsed = 0f;
+        int currentValue = start;
+
+        while (elapsed < time)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / time);
+
+            float easedT = Mathf.SmoothStep(0, 1, t);
+
+            currentValue = Mathf.RoundToInt(Mathf.Lerp(start, end, easedT));
+            numberText.text = currentValue.ToString();
+
+            yield return null;
+        }
+
+        numberText.text = end.ToString(); 
+    }
+
+    public static IEnumerator JustWait(float time, Action callBack = null)
+    {
+        yield return new WaitForSeconds(time);
+        callBack?.Invoke();
+    }
 }

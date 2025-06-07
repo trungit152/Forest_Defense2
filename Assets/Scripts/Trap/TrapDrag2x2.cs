@@ -20,6 +20,7 @@ public class TrapDrag2x2 : DragObject
     }
     protected override void Transfer()
     {
+        AudioManager.instance.PlaySoundEffect("SetTurret");
         var trap = Instantiate(_trapsObject, _allTurrets);
         trap.transform.position = transform.position;
         TurretManager.instance.AddTurret(_trapId);

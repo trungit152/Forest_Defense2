@@ -14,6 +14,8 @@ public class WallControl : MonoBehaviour
     public float _hp;
     private Vector2 _hpBarSize;
     private bool _isLose;
+    private int _star;
+    public int Star { get => _star;} 
     public static WallControl instance;
 
     private void Awake()
@@ -33,6 +35,7 @@ public class WallControl : MonoBehaviour
     }
     private void Init()
     {
+        _star = 3;
         _hp = _maxHp;
         _spriteRenderer.sprite = _wall_100hp;
         _hpBarSize = _hpBar.size;
@@ -48,10 +51,9 @@ public class WallControl : MonoBehaviour
         }
         else if (_hp <= 0 && !_isLose)
         {
-            Debug.Log("-");
+            InGameUI.instance.ShowLosePanel();
             _hp = 0;
             _hpBar.size = new Vector2(_hp / _maxHp * _hpBarSize.x, _hpBarSize.y);
-            Toast.Show("LOSE", 0.5f, ToastColor.Blue, ToastPosition.MiddleCenter);
             _isLose = true;
         }
 
@@ -59,20 +61,22 @@ public class WallControl : MonoBehaviour
 
         if (_hp / _maxHp < 0.25f)
         {
+            _star = 0;
             newSprite = _wall_25hp;
         }
         else if (_hp / _maxHp < 0.5f)
         {
+            _star = 1;
             newSprite = _wall_50hp;
         }
         else if (_hp / _maxHp < 0.75f)
         {
-            Debug.Log("1");
+            _star = 2;
             newSprite = _wall_75hp;
         }
         if (newSprite != null && _spriteRenderer.sprite != newSprite)
         {
-            Handheld.Vibrate();
+            //Handheld.Vibrate();
             _spriteRenderer.sprite = newSprite;
         }
     }

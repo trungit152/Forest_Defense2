@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     private bool _isGameStarted = false;
     private float _elapsedTime = 0;
     public static GameController instance;
+    public int _point;
+    public int Point => _point;
     private void Awake()
     {
         if(instance!=null && instance != this)
@@ -25,6 +27,8 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         GameStat.ChangeGameTimeScale(0);
+        ResetPoint();
+        AudioManager.instance.PlayMusic("CombatMusic");
     }
 
     private void Update()
@@ -43,5 +47,14 @@ public class GameController : MonoBehaviour
                 _startPanel.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void AddPoint(int point)
+    {
+        _point += point;
+    }
+    public void ResetPoint()
+    {
+        _point = 0;
     }
 }

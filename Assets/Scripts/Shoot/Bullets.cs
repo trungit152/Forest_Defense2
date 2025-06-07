@@ -44,7 +44,7 @@ public class Bullets : MonoBehaviour
     private void MoveToTarget()
     {
         if (_target != null)
-        {         
+        {
             if (_target.gameObject.activeInHierarchy)
             {
                 MoveAndRotate(_target.transform.position);
@@ -53,7 +53,7 @@ public class Bullets : MonoBehaviour
             else
             {
                 MoveAndRotate(_targetPosition);
-                if(Vector2.Distance(transform.position, _targetPosition) < 0.2f)
+                if (Vector2.Distance(transform.position, _targetPosition) < 0.2f)
                 {
                     gameObject.SetActive(false);
                     RemoveTarget();
@@ -76,7 +76,7 @@ public class Bullets : MonoBehaviour
         {
             heighVector = -heighVector;
         }
-        if(distance / _totalDistance < 0.6 &&  distance / _totalDistance > 0.4)
+        if (distance / _totalDistance < 0.6 && distance / _totalDistance > 0.4)
         {
             delta = 0.1f;
         }
@@ -88,7 +88,7 @@ public class Bullets : MonoBehaviour
         {
             direction = (Vector2)(_target - transform.position).normalized;
         }
-        transform.position += (Vector3)(direction + heighVector* delta) * Time.deltaTime * _speed * GameStat.gameTimeScale;
+        transform.position += (Vector3)(direction + heighVector * delta) * Time.deltaTime * _speed * GameStat.gameTimeScale;
 
         //rotate
         direction = ((Vector2)_target - _startPos).normalized;

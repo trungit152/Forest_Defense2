@@ -15,6 +15,7 @@ public class DataEnemy
     public float[] CD;
     public float[] EXP;
     public float MS;
+    public int Coin;
     public string Note;
 
     public static List<DataEnemy> listData;

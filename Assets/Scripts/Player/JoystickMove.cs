@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class JoystickMove : MonoBehaviour
@@ -14,7 +15,7 @@ public class JoystickMove : MonoBehaviour
         Idle,
         Walk
     }
-    public static JoystickMove instance;
+    //public static JoystickMove instance;
 
     private PlayerSpineController _playerSpineController;
     public PlayerSpineController PlayerSpineController
@@ -59,18 +60,6 @@ public class JoystickMove : MonoBehaviour
         {
             _playerAttack = value;
         }
-    }
-    private void Awake()
-    {
-        if(instance != null && instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            instance = this;
-        }
-
     }
     private void FixedUpdate()
     {
@@ -142,5 +131,10 @@ public class JoystickMove : MonoBehaviour
     public void ResetJoystick()
     {
         _movementJoystick.OnPointerUp(new PointerEventData(EventSystem.current));
+    }
+
+    public void Init(Joystick joystick)
+    {
+        _movementJoystick = joystick;
     }
 }

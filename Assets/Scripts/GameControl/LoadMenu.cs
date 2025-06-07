@@ -10,5 +10,6 @@ public class LoadMenu : MonoBehaviour
         DataTurret.GetListData();
         DataTurn.GetListData();
         DataWave.GetListData();
+        GlobalController.CurrentModeGame = GlobalController.ModeGame.ModeOffline;
     }
 }

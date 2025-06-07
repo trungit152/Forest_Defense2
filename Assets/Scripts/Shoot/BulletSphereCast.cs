@@ -11,7 +11,7 @@ public class BulletSphereCast : MonoBehaviour
     protected float _damage;
     [SerializeField] protected ObjectPool _attackImpact;
     [SerializeField] protected Transform _knockBackPosition;
-    private bool _isCrit;   
+    private bool _isCrit;
     private void Update()
     {
         Vector2 origin = transform.position;
@@ -24,16 +24,16 @@ public class BulletSphereCast : MonoBehaviour
             foreach (RaycastHit2D hit in hits)
             {
                 if (hit.collider != null)
-                {                 
+                {
                     var enemy = hit.collider.GetComponent<Enemy>();
                     if (enemy != null && !enemy.IsDie())
                     {
                         SetDamageNumber(enemy);
                         enemy.SetNumberDirection(CheckLeftRight(enemy.GetCenter()));
                         enemy.LoseHealth(_damage);
-                        enemy.EnemyKnockBack.ApplyKnockback(_knockBackPosition!=null?_knockBackPosition.position:transform.position);
+                        enemy.EnemyKnockBack.ApplyKnockback(_knockBackPosition != null ? _knockBackPosition.position : transform.position);
                     }
-                    if(_attackImpact != null)
+                    if (_attackImpact != null)
                     {
                         _attackImpact.GetObject(transform.position);
                     }
@@ -58,7 +58,7 @@ public class BulletSphereCast : MonoBehaviour
     }
     public bool CheckLeftRight(Transform enemy)
     {
-        if(transform.position.x > enemy.transform.position.x)
+        if (transform.position.x > enemy.transform.position.x)
         {
             return false;
         }

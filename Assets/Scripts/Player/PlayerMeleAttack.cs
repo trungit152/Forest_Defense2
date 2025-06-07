@@ -13,7 +13,7 @@ public class PlayerMeleAttack : PlayerAttack
     }
     protected override void CoolDownCounter()
     {
-        if (_cdRemaining <= 0 && !PlayerHealth.instance.IsDeath())
+        if (_cdRemaining <= 0 && !MultiplayerSpawner.localPlayer.PlayerHealth.IsDeath())
         {
             GetEnemyInRange();
             if (_isHavingEnemyInRange)
@@ -29,7 +29,7 @@ public class PlayerMeleAttack : PlayerAttack
     }
     protected void GetEnemyInRange()
     {
-        _enemyList = EnemiesController.instance.GetNearestEnemies(PlayerHealth.instance.GetPlayerCenter().position, _range);
+        _enemyList = EnemiesController.instance.GetNearestEnemies(MultiplayerSpawner.localPlayer.PlayerHealth.GetPlayerCenter().position, _range);
         if (_enemyList.Count == 0)
         {
             _isHavingEnemyInRange = false;
@@ -42,7 +42,7 @@ public class PlayerMeleAttack : PlayerAttack
     }
     private void SetAttackAnimation()
     {
-        if (JoystickMove.instance.IsMoving())
+        if (MultiplayerSpawner.localPlayer.JoystickMove.IsMoving())
         {
             PlayerSpineController.SetWalkAtack();
         }

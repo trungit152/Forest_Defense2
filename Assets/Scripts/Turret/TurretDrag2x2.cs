@@ -46,6 +46,10 @@ public class TurretDrag2x2 : DragObject
     }
     protected override void Transfer()
     {
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySoundEffect("SetTurret");
+        }
         var turret = Instantiate(_turretObject, _allTurrets);
         turret.transform.position = transform.position;
         turret.SetUnderBlock(_isShownUnderBlock);

@@ -2,6 +2,7 @@ using DamageNumbersPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Enemy : IdComponent
 {
@@ -25,7 +26,7 @@ public class Enemy : IdComponent
     private bool _isDie;
     private float _cardPercent;
     private float _expPercent;
-
+    public int _coin;
     private bool _isBurnted;
     private Coroutine _burntCoroutine;
     private Coroutine _burntSpriteCoroutine;
@@ -169,13 +170,14 @@ public class Enemy : IdComponent
         EnemyChase.Init();
         EnemyKnockBack.Init();
     }
-    public void InitStat(string name, float hp, float damage, float cd, float exp, float speed)
+    public void InitStat(string name, float hp, float damage, float cd, float exp, float speed, int coin)
     {
         _enemyName = name;
         _maxHp = hp;
         EnemyAttack.Init(damage, cd);
         _enemyDropItem.Init(exp);
         _speed = speed;
+        _coin = coin;
     }
     public void InitStat(DataEnemy dataEnemy)
     {
@@ -184,6 +186,7 @@ public class Enemy : IdComponent
         EnemyAttack.Init(dataEnemy.ATK[0], dataEnemy.CD[0]);
         _enemyDropItem.Init(dataEnemy.EXP[0]);
         _speed = dataEnemy.MS;
+        _coin = dataEnemy.Coin;
     }
     public void SetTarget(Transform target)
     {
@@ -367,9 +370,20 @@ public class Enemy : IdComponent
     }
     public virtual void Die()
     {
+        GlobalController.OnEnemyDie?.Invoke(_coin);
+        Debug.Log("Enemy die: " + _coin);
+        if(GameController.instance != null)
+        {
+            GameController.instance.AddPoint(_coin);
+        }
         _enemyDropItem.DropItem(_cardPercent,_expPercent, _isCardFly);
         StopAllCoroutines();
         EnemiesController.instance.RemoveDeathEnemy(this);
+        if(WaveManager.instance != null && WaveManager.instance.IsEndGame() 
+            && EnemiesController.instance != null && EnemiesController.instance.GetAliveEnemyCount() <= 0)
+        {
+            InGameUI.instance.ShowWinPanel(WallControl.instance.Star);
+        }
         gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -565,5 +579,10 @@ public class Enemy : IdComponent
     public void SetNumberDirection(bool isRight)
     {
         _numberBounceRight = isRight;
+    }
+
+    public void ChangeExp(float exp)
+    {
+        _enemyDropItem.ChangeExp(exp);
     }
 }

@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private GameObject _joystick;
 
     [SerializeField] private float _reviveTime = 10;
-    public static PlayerHealth instance;
+    //public static PlayerHealth instance;
     private float _curHealth;
     private Vector2 _healthBarSize;
     private bool _isImmortal = false;
@@ -50,17 +50,17 @@ public class PlayerHealth : MonoBehaviour
             return _playerSpineController;
         }
     }
-    private void Awake()
-    {
-        if(instance != null && instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            instance = this;
-        }
-    }
+    //private void Awake()
+    //{
+    //    if(instance != null && instance != this)
+    //    {
+    //        Destroy(this);
+    //    }
+    //    else
+    //    {
+    //        instance = this;
+    //    }
+    //}
     private void Start()
     {
         _curHealth = _health;
@@ -103,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
         _healthCollider.enabled = false;
         _joystick.SetActive(false);
         PlayerAttack.instance.SetCanAttack(false);
-        JoystickMove.instance.ResetJoystick();
+        MultiplayerSpawner.localPlayer.JoystickMove.ResetJoystick();
     }
     private void Revive()
     {
@@ -150,4 +150,12 @@ public class PlayerHealth : MonoBehaviour
         _isImmortal = false;
     }
     public bool IsDeath() { return _isDeath; }
+
+    public void Init(TextMeshProUGUI reviveText, GameObject revivePanel, GameObject joystick)
+    {
+        _reviveText = reviveText;
+        _revivePanel = revivePanel;
+        _joystick = joystick;
+    }
+
 }

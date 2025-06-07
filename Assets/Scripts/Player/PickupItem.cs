@@ -44,4 +44,10 @@ public class PickupItem : MonoBehaviour
     {
         _radius = radius;
     }
+
+    public void Init(Transform deskPosition, Transform expTarget)
+    {
+        _deskPosition = deskPosition;
+        _expTarget = expTarget;
+    }
 }

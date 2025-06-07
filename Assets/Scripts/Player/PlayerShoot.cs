@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShoot : PlayerAttack
@@ -15,7 +16,7 @@ public class PlayerShoot : PlayerAttack
     private void FixedUpdate()
     {
         CoolDownCounter();
-        
+
     }
     public override void Shoot()
     {
@@ -27,6 +28,11 @@ public class PlayerShoot : PlayerAttack
     private void SpawnBullets(Enemy enemy, int bulletAmount)
     {
         if (bulletAmount <= 0) return;
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySoundEffect("PlayerShoot");
+        }
 
         List<float> offsets = new List<float>();
         float offsetStep = 0.5f;
@@ -54,21 +60,29 @@ public class PlayerShoot : PlayerAttack
 
     private void CreateBullet(Enemy enemy, float offset)
     {
-        GameObject bullets = ObjectPool.GetObject(_bulletSpawnPoint.position);
-        var bulletsComponent = bullets.GetComponent<Bullets>();
-        var bulletsSphereCast = bullets.GetComponent<BulletSphereCast>();
-        if (bulletsComponent != null)
+        GameObject bullet = ObjectPool.GetObject(_bulletSpawnPoint.position);
+        SetBulletData(bullet, enemy, offset);
+    }
+
+    private void SetBulletData(GameObject bullet, Enemy enemy, float offset)
+    {
+        var bulletComponent = bullet.GetComponent<Bullets>();
+        var bulletSphereCast = bullet.GetComponent<BulletSphereCast>();
+
+        if (bulletComponent != null)
         {
-            bulletsComponent.SetTarget(enemy.GetCenter());
-            bulletsComponent.SetOffset(offset);
-            bulletsComponent.SetSpeed(_bulletSpeed);
+            bulletComponent.SetTarget(enemy.GetCenter());
+            bulletComponent.SetOffset(offset);
+            bulletComponent.SetSpeed(_bulletSpeed);
+
             float damage = _damage;
             bool isCrit = FeelingTools.RandomChance(_critPercent);
             if (isCrit)
             {
                 damage *= _critDamage * 0.01f;
             }
-            bulletsSphereCast.SetDamage(damage, isCrit);
+
+            bulletSphereCast.SetDamage(damage, isCrit);
         }
     }
     protected void GetEnemyInRange()
@@ -88,7 +102,7 @@ public class PlayerShoot : PlayerAttack
     {
         if (_canAttack)
         {
-            if (_cdRemaining <= 0 && !PlayerHealth.instance.IsDeath())
+            if (_cdRemaining <= 0 && !Player.instance.PlayerHealth.IsDeath())
             {
                 GetEnemyInRange();
                 if (_isHavingEnemyInRange)
@@ -105,18 +119,12 @@ public class PlayerShoot : PlayerAttack
     }
     private void SetAttackAnimation()
     {
-        if (JoystickMove.instance.IsMoving())
+
+        if (_isHavingEnemyInRange)
         {
-            PlayerSpineController.SetWalkAtack();
+            PlayerSpineController.CheckLeftRightRotation(_enemyList[0].transform.position - transform.position);
         }
-        else
-        {
-            if (_isHavingEnemyInRange)
-            {
-                PlayerSpineController.CheckLeftRightRotation(_enemyList[0].transform.position - transform.position);
-            }
-            PlayerSpineController.SetAttack();
-        }
+        PlayerSpineController.SetAttack();
     }
     public void ClearEnemyList()
     {
@@ -125,7 +133,7 @@ public class PlayerShoot : PlayerAttack
     }
     public override void AddBullet(int i = 1)
     {
-        _bulletAmount+=i;
+        _bulletAmount += i;
         DecreaseDamage(40);
     }
     public override void SplitTarget(int i = 1)

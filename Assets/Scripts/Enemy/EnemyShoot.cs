@@ -20,7 +20,7 @@ public class EnemyShoot : EnemyAttack
             else
             {
                 //bulletComponent.SetTarget(PlayerHealth.instance.GetPlayerCenter());
-                bulletComponent.SetTargetNew(PlayerHealth.instance.GetPlayerCenter().position);
+                bulletComponent.SetTargetNew(MultiplayerSpawner.localPlayer.PlayerHealth.GetPlayerCenter().position);
             }
             bulletComponent.SetSpeed(_bulletSpeed);
             bulletComponent.SetDamage(_damage);

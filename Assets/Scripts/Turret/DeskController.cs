@@ -170,4 +170,9 @@ public class DeskController : MonoBehaviour
             }
         }
     }
+
+    public int CardCount()
+    {
+        return _cardList.Count;
+    }
 }

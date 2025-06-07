@@ -10374,7 +10374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2382031638689588882
 Transform:
   m_ObjectHideFlags: 0
@@ -10476,7 +10476,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   _attackCd: 0.8333333
-  _exclamationMark: {fileID: 0}
+  _exclamationMark: {fileID: 2531579826826818824}
 --- !u!114 &1178432068772208873
 MonoBehaviour:
   m_ObjectHideFlags: 0

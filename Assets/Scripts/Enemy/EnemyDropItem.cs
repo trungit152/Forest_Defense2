@@ -76,4 +76,9 @@ public class EnemyDropItem : MonoBehaviour
     {
         return Random.Range(0f, 100f) < percent;
     }
+
+    public void ChangeExp(float expAmount)
+    {
+        _expAmount = expAmount;
+    }
 }

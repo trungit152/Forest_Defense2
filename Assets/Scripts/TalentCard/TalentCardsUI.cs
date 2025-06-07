@@ -23,8 +23,13 @@ public class TalentCardsUI : MonoBehaviour
     }
     public void OnCardClicked()
     {
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySoundEffect("UIClick");
+        }
         ChooseEnd();
         TalentsController.instance.AddChosenTalent(_talentId);
+        Debug.Log(_talentId);
         switch (_talentId)
         {
             //ADD TURRET
@@ -177,6 +182,6 @@ public class TalentCardsUI : MonoBehaviour
     }
     private void ChooseEnd()
     {
-        PlayerLevel.instance.ChooseTalentEnd();
+        MultiplayerSpawner.localPlayer._playerLevel.ChooseTalentEnd();
     }
 }

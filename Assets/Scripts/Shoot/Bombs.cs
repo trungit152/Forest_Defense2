@@ -139,6 +139,7 @@ public class Bombs : MonoBehaviour
     }
     private void TakeDamage()
     {
+        AudioManager.instance.PlaySoundEffect("Explode");
         var shpereCast = ObjectPool.GetObject(transform.position);
         var shpereCastComponent = shpereCast.GetComponent<BombSphereCast>();
         if (shpereCastComponent != null)

@@ -123,7 +123,7 @@ public class EnemyChase : MonoBehaviour
             }
             EnemyAttack.TurnOnCollideAI(false);
             EnemyAnimation.SetIdle();
-            EnemyAnimation.FaceToPlayer(PlayerHealth.instance.GetPlayerCenter().position);
+            EnemyAnimation.FaceToPlayer(MultiplayerSpawner.localPlayer.PlayerHealth.GetPlayerCenter().position);
             if (_cd <= 0)
             {
                 isAttackPlayer = true;
@@ -146,11 +146,11 @@ public class EnemyChase : MonoBehaviour
             EnemyAnimation.SetWalk();
         }
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(Enemy.GetCenter().position, _rangeRandomize);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireSphere(Enemy.GetCenter().position, _rangeRandomize);
+    //}
     public Transform GetPlayerTransform()
     {
         if (player == null)

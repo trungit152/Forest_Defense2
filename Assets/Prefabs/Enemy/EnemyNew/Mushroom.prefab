@@ -15262,7 +15262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62aa7b69bf000b44a21f775ff836bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 4
+  ID: 14
   _maxHp: 54
   _speed: 0.5
   _enemyDropItem: {fileID: 8743276533560324522}
@@ -15312,7 +15312,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   _attackCd: 0.8333333
-  _exclamationMark: {fileID: 0}
+  _exclamationMark: {fileID: 2593503025057526797}
 --- !u!114 &6974021808949207797
 MonoBehaviour:
   m_ObjectHideFlags: 0

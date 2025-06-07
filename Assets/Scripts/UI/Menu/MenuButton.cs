@@ -11,5 +11,6 @@ public class MenuButton : MonoBehaviour
     public void LoadDemo()
     {
         SceneManager.LoadScene("Level5");
+        AudioManager.instance.FadeOutMusic("MenuMusic");
     }
 }

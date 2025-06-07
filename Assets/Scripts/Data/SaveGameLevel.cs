@@ -23,7 +23,7 @@ public class SaveGameLevel
             maxLevel = ES3.Load<int>(MAX_LEVEL_KEY);
         else
         {
-            maxLevel = DataWave.GetLevelCount();
+            maxLevel = DataWave.GetLevelCount()-1;
         }
 
         if (ES3.KeyExists(LEVEL_UNLOCKED_KEY))

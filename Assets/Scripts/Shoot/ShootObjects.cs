@@ -9,6 +9,7 @@ public class ShootObjects : AttackObject
         {
             foreach (var enemy in _nearestEnemy)
             {
+                AudioManager.instance.PlaySoundEffect("BasicAttack");
                 GameObject bullets = ObjectPool.GetObject(spawnPosition);
                 var bulletsComponent = bullets.GetComponent<Bullets>();
                 var bulletsSphereCast = bullets.GetComponent<BulletSphereCast>();
@@ -65,6 +66,7 @@ public class ShootObjects : AttackObject
     }
     private IEnumerator FindNearlyEnemyCoroutine(Vector3 from, Enemy to, int i = 0,bool isStun = false, Transform parent = null)
     {
+        AudioManager.instance.PlaySoundEffect("ElectricAttack");
         GameObject thunder = ObjectPool.GetObject(from);
         thunder.transform.SetParent(parent);
         var thunderComponent = thunder.GetComponent<Thunder>();

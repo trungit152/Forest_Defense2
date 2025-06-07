@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -23,14 +23,26 @@ public class WaveManager : MonoBehaviour
     private int _currentTurn;
     private int _currentEnemy;
     private bool _endGame;
+
+    private bool _isLastEnemyInWave;
+    public static WaveManager instance;
     void Awake()
     {
         Init();
+        if(instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
     private void Init()
     {
         _endGame = false;
+        _isLastEnemyInWave = false;
         _turnDelayTime = 0f;
         _enemyDelayTime = 0f;
         _waveDelayTime = 0f;
@@ -54,8 +66,15 @@ public class WaveManager : MonoBehaviour
 
     public void InitUI()
     {
-        _waveText.text = $"Wave {(_currentWave + 1)}/{_mainWaves.Count}";
-        _waveCounterImage.SetActive(false);
+        if(SaveGame.SaveGameLevel.currentLevel != 0)
+        {
+            _waveText.text = $"Wave {(_currentWave + 1)}/{_mainWaves.Count}";
+        }
+        else
+        {
+            _waveText.text = $"Wave {_currentWave + 1}";
+        }
+            _waveCounterImage.SetActive(false);
         _waveText.gameObject.SetActive(true);
         _warningScreen.SetActive(false);
         _bossIncoming.SetActive(false);
@@ -95,11 +114,15 @@ public class WaveManager : MonoBehaviour
 
     private void EnemyCount()
     {
+        if (_isLastEnemyInWave)
+        {
+            _enemyDelayTime = 5;
+            _isLastEnemyInWave = false;
+        }
         if (_enemyDelayTime > 0)
         {
             _enemyDelayTime -= Time.deltaTime * GameStat.gameTimeScale;
-            if(_currentTurn == _turnList[_mainWaves[_currentWave].WaveId].Count-1 
-                && _currentEnemy == _turnList[_mainWaves[_currentWave].WaveId][_currentTurn].EnemyId.Length-1)
+            if(_currentTurn == 0 && _currentEnemy ==0)
             {
                 _waveCounterImage.SetActive(true);
                 _waveCounterText.text = $"{MyMath.FormatTime(_enemyDelayTime)}";
@@ -143,13 +166,21 @@ public class WaveManager : MonoBehaviour
                 currentEnemy = currentTurn.EnemyId[_currentEnemy];
                 _turnDelayTime = currentTurn.DelayTime[_currentEnemy];
                 _enemyDelayTime = currentTurn.DelayTime[_currentEnemy];
+                
             }
             else
             {
                 if (_currentWave < _mainWaves.Count - 1)
                 {
                     _currentWave++;
-                    _waveText.text = $"Wave {(_currentWave + 1)}/{_mainWaves.Count}";
+                    if (SaveGame.SaveGameLevel.currentLevel != 0)
+                    {
+                        _waveText.text = $"Wave {(_currentWave + 1)}/{_mainWaves.Count}";
+                    }
+                    else
+                    {
+                        _waveText.text = $"Wave {_currentWave + 1}";
+                    }
                     _currentTurn = 0;
                     _currentEnemy = 0;
                     currentTurnList = _turnList[_mainWaves[_currentWave].WaveId];
@@ -159,10 +190,14 @@ public class WaveManager : MonoBehaviour
                     _waveDelayTime = _mainWaves[_currentWave].Delay;
                     _turnDelayTime = currentTurn.DelayTime[_currentEnemy];
                     _enemyDelayTime = currentTurn.DelayTime[_currentEnemy];
+                    _isLastEnemyInWave = true;
                 }
                 else
                 {
-                    _endGame = true;
+                    if (!_endGame)
+                    {
+                        _endGame = true;
+                    }              
                 }
             }
         }
@@ -178,5 +213,10 @@ public class WaveManager : MonoBehaviour
         _warningScreen.SetActive(true);
         yield return new WaitForSeconds(time);
         _warningScreen.SetActive(false);
+    }
+
+    public bool IsEndGame()
+    {
+        return _endGame;
     }
 }

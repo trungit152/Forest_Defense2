@@ -7,6 +7,7 @@ public class EnemyBoss : Enemy
 
     public override void SetHpBar(RectTransform hpBarBorder, RectTransform hpBar)
     {
+        Debug.Log("set hp bar");
         _hpBarBorder = hpBarBorder;
         _hpBar = hpBar;
         _hpBarBorder.gameObject.SetActive(true);

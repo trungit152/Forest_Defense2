@@ -83,24 +83,26 @@ public class EnemyAttack : MonoBehaviour
     {
 
         if (damage < 0) damage = _damage;
-        if (isAttackPlayer && !PlayerHealth.instance.IsDeath())
+        if (isAttackPlayer && !MultiplayerSpawner.localPlayer.PlayerHealth.IsDeath())
         {
+            AudioManager.instance.PlaySoundEffect("EnemyPunch");
             Enemy.SetAttackImpactPosition(GetAttackImpactPos());
-            PlayerHealth.instance.LoseHealth(damage);
+            MultiplayerSpawner.localPlayer.PlayerHealth.LoseHealth(damage);
         }
         else if(isAttackWall)
         {
+            AudioManager.instance.PlaySoundEffect("EnemyPunch");
             Enemy.SetAttackImpactPosition(EnemyAI.GetTarget().position);
             WallControl.instance.Attacked(damage);
         }
     }
     public void TakeDamagePlayer(float damage = -1)
     {
-        if (!PlayerHealth.instance.IsDeath())
+        if (!MultiplayerSpawner.localPlayer.PlayerHealth.IsDeath())
         {
             if (damage < 0) damage = _damage;
             Enemy.SetAttackImpactPosition(GetAttackImpactPos());
-            PlayerHealth.instance.LoseHealth(damage);
+            MultiplayerSpawner.localPlayer.PlayerHealth.LoseHealth(damage);
         }
     }
     public void TakeDamageWall(float damage = -1)
@@ -111,7 +113,7 @@ public class EnemyAttack : MonoBehaviour
     }
     private Vector3 GetAttackImpactPos()
     {
-        Vector3 playerCenter = PlayerHealth.instance.GetPlayerCenter().position;
+        Vector3 playerCenter = MultiplayerSpawner.localPlayer.PlayerHealth.GetPlayerCenter().position;
         Vector3 directionToObject = (transform.position - playerCenter).normalized; 
         return playerCenter + directionToObject * 0.3f; 
     }

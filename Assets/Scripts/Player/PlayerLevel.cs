@@ -24,22 +24,30 @@ public class PlayerLevel : MonoBehaviour
     private bool _isChoosing;
     private float _speed;
     private int _activeCoroutines;
+    private bool _canLevelUp = true;
 
-    public static PlayerLevel instance;
+    //public static PlayerLevel instance;
     private void Awake()
     {
-        if (instance != null && instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            instance = this;
-        }
+        //if (instance != null && instance != this)
+        //{
+        //    Destroy(this);
+        //}
+        //else
+        //{
+        //    instance = this;
+        //}
         _claimCoroutine = new Queue<IEnumerator>();
     }
     private void Start()
     {
+        if(_expBarBorder != null)
+        {
+            _expBarBorder.anchorMin = new Vector2(0.5f, 1f);
+            _expBarBorder.anchorMax = new Vector2(0.5f, 1f);
+            _expBarBorder.pivot = new Vector2(0.5f, 1f);
+            _expBarBorder.anchoredPosition = new Vector2(0f, -30f);
+        }
         SetValue();
     }
     private void SetValue()
@@ -100,11 +108,20 @@ public class PlayerLevel : MonoBehaviour
             }
         }
     }
+    public void StopLevelUp()
+    {
+        _canLevelUp = false;
+        ChooseTalentEnd();
+    }
     private void CheckLevelUp()
     {
 
-        if (_currentExp >= _levelInformation[_currentLevel])
+        if (_canLevelUp && _currentExp >= _levelInformation[_currentLevel])
         {
+            if(AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySoundEffect("LevelUp");
+            }
             _currentExp = 0;
             _currentLevel++;
             _levelText.text = _currentLevel.ToString();
@@ -144,6 +161,10 @@ public class PlayerLevel : MonoBehaviour
             card.anchoredPosition = new Vector2(card.anchoredPosition.x, 1920);
         }
         //
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySoundEffect("CardThud");
+        }
         StartCoroutine(FeelingTools.ZoomInCoroutine(_glow, 1f, time));
         StartCoroutine(FeelingTools.Rotate(_glow, time));
         StartCoroutine(FeelingTools.FadeInCoroutine(_chooseTalentPanel, time, 0.8f, RotateCard));
@@ -166,6 +187,10 @@ public class PlayerLevel : MonoBehaviour
             var card = cardUI.GetComponent<RectTransform>();
             StartCoroutine(FeelingTools.MoveToTarget(card, 0.4f, card.anchoredPosition - new Vector2(0, 1920), null, 250f));
             yield return new WaitForSeconds(0.1f);
+        }
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySoundEffect("CardThud");
         }
     }
     public void ChooseTalentEnd()
@@ -204,5 +229,19 @@ public class PlayerLevel : MonoBehaviour
     public int GetLevel()
     {
         return _currentLevel;
+    }
+
+    public void Init(RectTransform expBar, RectTransform glow, RectTransform expBarBorder, Image chooseTalentPanel, List<TalentCardsUI> talentCardsUI,
+        EnemiesAnimator enemiesAnimator, TextMeshProUGUI levelText, TextMeshProUGUI chooseTalentsText, GameObject levelUpBanner)
+    {
+        _expBar = expBar;
+        _glow = glow;
+        _expBarBorder = expBarBorder;
+        _chooseTalentPanel = chooseTalentPanel;
+        _talentCardsUI = talentCardsUI;
+        _enemiesAnimator = enemiesAnimator;
+        _levelText = levelText;
+        _chooseTalentsText = chooseTalentsText;
+        _levelUpBanner = levelUpBanner;
     }
 }

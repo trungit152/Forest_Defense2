@@ -1,8 +1,12 @@
 using EasyUI.Toast;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelTutorial : MonoBehaviour
 {
@@ -30,19 +34,23 @@ public class LevelTutorial : MonoBehaviour
     [Header("Talent")]
     [SerializeField] private GameObject _talentText;
     private bool _isSetTalent;
-    [Header("TurretDrop")]
-    [SerializeField] private GameObject _turretDropText;
-    private Enemy _turretDropEnemy;
-    private bool _isSetTurretDrop;
-    private bool _isTurretDropEnemyDie;
-    private bool _isEndTurretDrop;
     [Header("DragTurret")]
     [SerializeField] private GameObject _turretDragText;
     [SerializeField] private GameObject _stumpList;
+    [Header("UI WIN")]
+    [SerializeField] private GameObject _winPanel;
+    [SerializeField] private Image _winPanelBlur;
+    [SerializeField] private RectTransform _winPanelImage;
+    [SerializeField] private List<RectTransform> _stars;
+    [SerializeField] private Sprite _starOn;
+    [SerializeField] private Sprite _starOff;
+    [SerializeField] private TextMeshProUGUI _talentPointText;
+    [SerializeField] private TextMeshProUGUI _coinText;
     private int _currentMoveIndex;
     private bool _isDoneState;
     private bool _isDoneDrag;
     private bool _isShowing;
+    private bool _isWin = false;
     private List<Enemy> _dragEnemy;
     public TutorialState _tutorialState;
     public enum TutorialState
@@ -51,7 +59,6 @@ public class LevelTutorial : MonoBehaviour
         Attack,
         ExpDrop,
         Talent,
-        TurretDrop,
         DragTurret
     }
     private void Start()
@@ -73,20 +80,16 @@ public class LevelTutorial : MonoBehaviour
     {
         _moveText.SetActive(false);
         _focusPosition.gameObject.SetActive(false);
-        _turretDropText.SetActive(false);
         _talentText.SetActive(false);
         _tutorialState = TutorialState.Move;
         _isSpawned = false;
         _enemyOnTruePosition = false;
         _isSpawnFocus = false;
-        _isTurretDropEnemyDie = false;
         _isSetTalent = false;
-        _isSetTurretDrop = false;
         _isShowing = false;
         _isDoneDrag = false;
         _isSetExpDropObject = false;
         _isDoneState = false;
-        _isEndTurretDrop = false;
     }
     private void HandleState()
     {
@@ -106,10 +109,6 @@ public class LevelTutorial : MonoBehaviour
 
             case TutorialState.Talent:
                 HandleTalent();
-                break;
-
-            case TutorialState.TurretDrop:
-                HandleTurretDrop();
                 break;
 
             case TutorialState.DragTurret:
@@ -133,7 +132,7 @@ public class LevelTutorial : MonoBehaviour
         _moveArrow.SetActive(true);
         _currentMoveIndex = 0;
         _moveArrow.transform.position = _moveList[0].position;
-        SpawnEnemiesController.instance.PauseSpawn();
+        //SpawnEnemiesController.instance.PauseSpawn();
         _isDoneState = true;
     }
     private void CheckMoveDone()
@@ -167,11 +166,12 @@ public class LevelTutorial : MonoBehaviour
             _joystick.gameObject.SetActive(false);
             if (!_isSpawned)
             {
-                CreateEnemy(new Vector3(0, 10, 0), _enemyTarget);
+                var enemy = CreateEnemy(new Vector3(0, 10, 0), _enemyTarget);
+                enemy.ChangeExp(2);
             }
             else
             {
-                if (Vector2.Distance(_attackEnemy.transform.position, _enemyTarget.position) < 0.2f)
+                if (Vector2.Distance(_attackEnemy.transform.position, _enemyTarget.position) < 0.5f)
                 {
                     _attackEnemy.EnemyAnimation.SetIdle();
                     _enemyOnTruePosition = true;
@@ -208,13 +208,10 @@ public class LevelTutorial : MonoBehaviour
         }
         else if(_isShowing)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
                 StartCoroutine(FeelingTools.ZoomInCoroutine(_focusPosition, 1, 0.5f));
                 GameStat.ChangeGameTimeScale(1);
                 _expText.SetActive(false);
                 GoNextState();
-            }
         }
     }
 
@@ -222,61 +219,32 @@ public class LevelTutorial : MonoBehaviour
     {
         if (!_isSetTalent)
         {
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 2; i++)
             {
                 Vector3 pos = (i == 0) ? new Vector3(-2, 12, 0) : new Vector3(2, 13, 0);
-                CreateEnemy(pos, _target);
+                var enemy = CreateEnemy(pos, _target);
+                enemy.ChangeExp(2);
             }
             _isSetTalent = true;
         }
-        else if (PlayerLevel.instance.GetLevel() == 2)
+        else if (MultiplayerSpawner.localPlayer._playerLevel.GetLevel() == 2)
         {
             _talentText.SetActive(true);
-            GoNextState();
         }
-    }
-    private void HandleTurretDrop()
-    {
-        if (GameStat.gameTimeScale != 0 && !_isSetTurretDrop)
+
+        if(DeskController.instance.CardCount() > 0)
         {
-            _playerPickUp.SetRadius(0);
+            Debug.Log("1");
             _talentText.SetActive(false);
-            _turretDropEnemy = CreateEnemy(new Vector3(0, 10, 0), _target, true);
-            _turretDropEnemy.ChangeExpPercent(0);
-            _turretDropEnemy.SetIsCardFly(false);
-            _turretDropEnemy.ChangeCardPercent(100);
-            _isSetTurretDrop = true;
-        }
-        else if (!_isTurretDropEnemyDie)
-        {
-            if (_turretDropEnemy!= null && _turretDropEnemy.IsDie())
-            {
-                _focusPosition.transform.localScale = Vector3.one;
-                _focusPosition.transform.position = _turretDropEnemy.transform.position + new Vector3(0, -2.2f);
-                StartCoroutine(FeelingTools.ZoomOutCoroutine(_focusPosition, 0.04f, 0.75f));
-                StartCoroutine(FeelingTools.MoveToTarget(_focusPosition, 0.75f, _turretDropEnemy.transform.position + new Vector3(0, 0.1f), SetShowingDone));
-                _turretDropText.SetActive(true);
-                _isTurretDropEnemyDie = true;
-                GameStat.ChangeGameTimeScale(0);
-                StartCoroutine(WaitToTurnOnClaim(2));
-            }
-        }
-        else
-        {
-            if (Input.GetMouseButton(0) && !_isEndTurretDrop && _isShowing)
-            {
-                GameStat.ChangeGameTimeScale(1);
-                GameObject.Find("RabbitCard(Clone)").GetComponent<TurretsCard>().Init();
-                StartCoroutine(FeelingTools.ZoomInCoroutine(_focusPosition, 1, 0.5f, GoNextState));
-                _isEndTurretDrop = true;
-            }
+            GoNextState();
         }
     }
     private void HandleTurretDrag()
     {
         if (!_isShowing && _desk.transform.childCount == 1)
         {
-            _turretDropText.SetActive(false);
+            Debug.Log("2");
+            _talentText.SetActive(false);
             _turretDragText.SetActive(true);
             _stumpList.SetActive(true);
             _isShowing = true;
@@ -314,7 +282,11 @@ public class LevelTutorial : MonoBehaviour
         }
         if(_isDoneDrag && EnemiesController.instance.GetAliveEnemyCount() == 0)
         {
-            Toast.Show("WIN", 0.5f, ToastColor.Blue, ToastPosition.MiddleCenter);
+            if(!_isWin)
+            {
+                _isWin = true;
+                ShowWinPanel();
+            }
         }
     }
     private void GoNextState()
@@ -348,11 +320,72 @@ public class LevelTutorial : MonoBehaviour
         }
         return enemy;
     }
-    private IEnumerator WaitToTurnOnClaim(float time)
+
+    public void ShowWinPanel(int star = 3)
     {
-        yield return new WaitForSeconds(time);
-        _playerPickUp.SetRadius(2f);
-        _isShowing = true;
+        if (_winPanel.activeSelf)
+        {
+            return;
+        }
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.FadeOutMusic("CombatMusic");
+            AudioManager.instance.PlaySoundEffect("Win");
+        }
+        //Set info off
+        foreach (var starItem in _stars)
+        {
+            starItem.gameObject.SetActive(false);
+        }
+        _talentPointText.gameObject.SetActive(false);
+        _coinText.gameObject.SetActive(false);
+        //Start show
+        _winPanel.SetActive(true);
+        StartCoroutine(FeelingTools.FadeInCoroutine(_winPanelBlur, 0.15f, 0.8f));
+        StartCoroutine(FeelingTools.ZoomInUI(_winPanelImage, 0.5f, 1f, 0.3f, 1.3f));
+        StartCoroutine(WaitForSecond(0.7f, () => ShowStar(star)));
+
     }
 
+    public void ShowStar(int star)
+    {
+        StartCoroutine(ShowStarCoroutine(star));
+    }
+
+    private IEnumerator ShowStarCoroutine(int star)
+    {
+        for (int i = 0; i < _stars.Count; i++)
+        {
+            if (i < star)
+            {
+                _stars[i].GetComponent<Image>().sprite = _starOn;
+            }
+            else
+            {
+                _stars[i].GetComponent<Image>().sprite = _starOff;
+            }
+
+            StartCoroutine(FeelingTools.ZoomInUI(_stars[i], 0.2f, 1f, 0.25f, 1.5f));
+
+            yield return new WaitForSeconds(0.25f);
+        }
+        //show talent point
+        StartCoroutine(FeelingTools.ShowNumberText(_talentPointText, 0, star, 1f));
+        SaveGame.SaveTalentPoint.AddTalentPoint(star);
+        // show coin
+        StartCoroutine(FeelingTools.ShowNumberText(_coinText, 0, star * 582, 1f));
+        SaveGame.SaveTalentPoint.AddCoin(star * 582);
+    }
+    private IEnumerator WaitForSecond(float second, Action callBack = null)
+    {
+        yield return new WaitForSeconds(second);
+        callBack?.Invoke();
+    }
+
+    public void LoadMenu()
+    {
+        AudioManager.instance.FadeOutMusic("CombatMusic", 1f);
+            SceneManager.LoadScene("Menu");
+
+    }
 }

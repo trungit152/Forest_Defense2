@@ -50,7 +50,7 @@ public class ClaimableObject : MonoBehaviour
         SetSortingOrder(101);
         if (Vector2.Distance(_target.position, transform.position) < 0.05f)
         {
-            PlayerLevel.instance.AddClaimCoroutineToQueue(_expAmount);
+            MultiplayerSpawner.localPlayer._playerLevel.AddClaimCoroutineToQueue(_expAmount);
             gameObject.SetActive(false);
         }
     }
